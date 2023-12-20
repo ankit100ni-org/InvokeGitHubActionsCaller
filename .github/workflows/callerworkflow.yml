@@ -1,22 +1,23 @@
 name: CallerWorkFlow
 
 on:
-  workflow_dispatch:
-    inputs: 
-      calledworkflow_name:
-        description: 'Called workflow Name for Triggering'
-        required: true
-        default: 'CalledWorkflow'
+  push
+  # workflow_dispatch:
+  #   inputs: 
+  #     calledworkflow_name:
+  #       description: 'Called workflow Name for Triggering'
+  #       required: true
+  #       default: 'CalledWorkflow'
       
-      CalledWorkflow_github_account:
-        description: 'GitHub Account Owner'
-        required: true
-        default: 'ankit100ni-org'
+  #     CalledWorkflow_github_account:
+  #       description: 'GitHub Account Owner'
+  #       required: true
+  #       default: 'ankit100ni-org'
       
-      CalledWorkflow_repo_github:
-        description: 'GitHub Repository Name'
-        required: true
-        default: 'InvokeGitHubActionsCalled'
+  #     CalledWorkflow_repo_github:
+  #       description: 'GitHub Repository Name'
+  #       required: true
+  #       default: 'InvokeGitHubActionsCalled'
 
 jobs:
 
@@ -46,4 +47,5 @@ jobs:
       - name: Trigger the Workflow
         run: |
          cd "$GITHUB_WORKSPACE/PythonScripts/"
-         python $GITHUB_WORKSPACE/PythonScripts/triggerscripts.py ${{ env.pat_token }}  ${{ github.event.inputs.CalledWorkflow_github_account}}  ${{ github.event.inputs.CalledWorkflow_repo_github}} ${{ github.event.inputs.calledworkflow_name}} ${{ env.parameter1 }} ${{ env.parameter2 }}
+         # python $GITHUB_WORKSPACE/PythonScripts/triggerscripts.py ${{ env.pat_token }}  ${{ github.event.inputs.CalledWorkflow_github_account}}  ${{ github.event.inputs.CalledWorkflow_repo_github}} ${{ github.event.inputs.calledworkflow_name}} ${{ env.parameter1 }} ${{ env.parameter2 }}
+         python $GITHUB_WORKSPACE/PythonScripts/triggerscripts.py ${{ env.pat_token }}  'ankit100ni-org'  'InvokeGitHubActionsCalled' 'CalledWorkflow' ${{ env.parameter1 }} ${{ env.parameter2 }}
