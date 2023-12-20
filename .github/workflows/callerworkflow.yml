@@ -11,7 +11,7 @@ on:
       CalledWorkflow_github_account:
         description: 'GitHub Account Owner'
         required: true
-        default: 'RekhuGopal'
+        default: 'ankit100ni-org'
       
       CalledWorkflow_repo_github:
         description: 'GitHub Repository Name'
@@ -24,7 +24,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-      pat_token: ${{ secrets.PAT_TOKEN_GITHUB }}
+      pat_token: ${{ secrets.GH_TOKEN }}
       parameter1: '42574587345'
       parameter2: 'TestStringWithoutSpace'
 
